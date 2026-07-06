@@ -1,0 +1,13 @@
+#!/bin/sh /etc/rc.common
+
+START=85
+USE_PROCD=1
+SERVICE_DAEMONIZE=1
+
+start_service() {
+    procd_open_instance
+    procd_set_param command /usr/bin/uci_sync
+    # Respawn: Reinicia el servicio si se cae (5000ms espera, max 5 veces en 1s)
+    procd_set_param respawn 5000 1 5
+    procd_close_instance
+}
