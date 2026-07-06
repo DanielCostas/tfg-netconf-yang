@@ -1,0 +1,20 @@
+module iana-if-type {
+  namespace "urn:ietf:params:xml:ns:yang:iana-if-type";
+  prefix ianaift;
+
+  organization "IANA";
+  description "Diccionario de Tipos de Interfaz";
+
+  revision 2017-01-19 {
+    description "Version compatible.";
+  }
+
+  identity iana-interface-type {
+    description "Base identity.";
+  }
+
+  identity ethernetCsmacd {
+    base iana-interface-type;
+    description "Ethernet standard.";
+  }
+}

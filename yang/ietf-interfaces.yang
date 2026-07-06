@@ -1,0 +1,54 @@
+module ietf-interfaces {
+  namespace "urn:ietf:params:xml:ns:yang:ietf-interfaces";
+  prefix if;
+
+  /* IMPORTANTE: Importamos el diccionario SIN poner fecha para evitar fallos */
+  import iana-if-type {
+    prefix ianaift;
+  }
+
+  organization "IETF";
+  description "Modulo Limpio y Automatico";
+
+  revision 2014-05-08 {
+    description "Initial revision.";
+  }
+
+  identity interface-type {
+    description "Base identity.";
+  }
+
+  container interfaces {
+    description "Interface configuration parameters.";
+
+    list interface {
+      key "name";
+
+      leaf name {
+        type string;
+        description "The name of the interface.";
+      }
+
+      leaf description {
+        type string;
+        description "Description.";
+      }
+
+      /* AQUI ESTA LA CLAVE: identityref */
+      /* Al ser identityref, YANGSuite buscara en el otro archivo */
+      /* y creara el XML automatico con los namespaces correctos */
+      leaf type {
+        type identityref {
+          base ianaift:iana-interface-type;
+        }
+        mandatory true;
+        description "The type of the interface.";
+      }
+
+      leaf enabled {
+        type boolean;
+        default "true";
+      }
+    }
+  }
+}
