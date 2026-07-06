@@ -1,0 +1,8 @@
+<clixon-config xmlns="http://clicon.org/config">
+  <CLICON_YANG_DIR>/usr/local/clixon/yang</CLICON_YANG_DIR>
+  <CLICON_YANG_MAIN_FILE>/usr/local/clixon/yang/main.yang</CLICON_YANG_MAIN_FILE>
+  <CLICON_CLISPEC_DIR>/usr/share/clixon/clispec</CLICON_CLISPEC_DIR>
+  <CLICON_SOCK>/var/run/clixon.sock</CLICON_SOCK>
+  <CLICON_PID_FILE>/var/run/clixon.pid</CLICON_PID_FILE>
+  <CLICON_BACKEND_DIR>/usr/local/var/clixoninitroot</CLICON_BACKEND_DIR>
+</clixon-config>
