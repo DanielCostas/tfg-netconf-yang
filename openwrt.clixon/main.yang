@@ -1,0 +1,11 @@
+module main {
+  namespace "http://clicon.org/config";
+  prefix main;
+
+  // Importación de módulos estándar IETF y IANA necesarios para la gestión de red
+  import ietf-interfaces { prefix if; }
+  import ietf-ip { prefix ip; }
+  import iana-if-type { prefix iana; }
+  import ietf-inet-types { prefix inet; }
+  import ietf-yang-types { prefix yang; }
+}
