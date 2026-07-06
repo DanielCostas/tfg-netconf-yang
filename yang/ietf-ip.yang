@@ -1,0 +1,47 @@
+module ietf-ip {
+  namespace "urn:ietf:params:xml:ns:yang:ietf-ip";
+  prefix ip;
+
+  /* Importamos el modulo de interfaces que ya tenemos */
+  import ietf-interfaces {
+    prefix if;
+  }
+
+  organization "IETF NETMOD (NETCONF Data Modeling) Working Group";
+  description "MODULO IP ADAPTADO PARA TFG - COMPATIBLE CON HACK INTERFACES";
+
+  revision 2014-06-16 {
+    description "Initial revision.";
+  }
+
+  /* AQUI OCURRE LA MAGIA: Añadimos IPv4 a las interfaces */
+  augment "/if:interfaces/if:interface" {
+    
+    container ipv4 {
+      description "Parameters for the IPv4 address family.";
+      
+      list address {
+        key "ip";
+        description "The list of configured IPv4 addresses.";
+
+        leaf ip {
+          type string;
+          mandatory true;
+          description "The IPv4 address on the interface.";
+        }
+
+        /* Añadido netmask especificamente para tu practica */
+        leaf netmask {
+          type string;
+          mandatory true;
+          description "The subnet mask.";
+        }
+      }
+    }
+
+    container ipv6 {
+      description "Parameters for the IPv6 address family.";
+      /* Dejamos esto vacio para no molestar */
+    }
+  }
+}
