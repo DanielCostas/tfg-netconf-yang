@@ -1,0 +1,15 @@
+# Entornos y cachés de Python (para la carpeta scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+
+# Binarios y compilados de C (para uci_sync)
+*.o
+*.ipk
+openwrt.clixon/src/uci_sync
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
